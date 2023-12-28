@@ -1,0 +1,12 @@
+{
+  "name": "create-next-app-lfg",
+  "version": "0.0.1",
+  "bin": {
+    "create-next-app-lfg": "./index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "execa": "^8.0.1",
+    "random-word-slugs": "^0.1.7"
+  }
+}
