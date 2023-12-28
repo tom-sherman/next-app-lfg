@@ -11,9 +11,27 @@ async function main() {
   const pm = getPackageManager();
   const initCommand = pm === "pnpm" ? "create" : "init";
   const nameSlug = generateSlug(3);
-  await execa(pm, [initCommand, "next-app", nameSlug], {
-    stdio: "inherit",
-  });
+
+  const pkgManagerOption = `--use-${pm}`;
+
+  await execa(
+    pm,
+    [
+      initCommand,
+      "next-app",
+      nameSlug,
+      "--ts",
+      "--src-dir",
+      pkgManagerOption,
+      "--no-tailwind",
+      "--eslint",
+      "--app",
+      '--import-alias="@/*"',
+    ],
+    {
+      stdio: "inherit",
+    }
+  );
 
   await execa(pm, ["exec", "vercel", nameSlug], {
     stdio: "inherit",

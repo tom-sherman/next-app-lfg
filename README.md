@@ -1,6 +1,6 @@
 # create-next-app-lfg
 
-Generates a next.js app and deploys it to Vercel.
+Generates a next.js app with the default settings and deploys it to Vercel.
 
 ## Usage
 
