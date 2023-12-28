@@ -29,23 +29,3 @@ function getPackageManager() {
   const pmPart = process.env.npm_config_user_agent.split(" ")[0];
   return pmPart.slice(0, pmPart.lastIndexOf("/"));
 }
-
-async function* chunksToLines(chunkIterable) {
-  let previous = "";
-  for await (const chunk of chunkIterable) {
-    let startSearch = previous.length;
-    previous += chunk;
-    while (true) {
-      const eolIndex = previous.indexOf("\n", startSearch);
-      if (eolIndex < 0) break;
-      // line includes the EOL
-      const line = previous.slice(0, eolIndex + 1);
-      yield line;
-      previous = previous.slice(eolIndex + 1);
-      startSearch = 0;
-    }
-  }
-  if (previous.length > 0) {
-    yield previous;
-  }
-}
