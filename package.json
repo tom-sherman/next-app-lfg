@@ -4,6 +4,10 @@
   "bin": {
     "create-next-app-lfg": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tom-sherman/next-app-lfg"
+  },
   "type": "module",
   "dependencies": {
     "execa": "^8.0.1",
